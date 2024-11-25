@@ -45,6 +45,8 @@ class Home extends Component
         }
 
         try {
+            set_time_limit(300); // 5 minutos
+
             // Instancia o cliente da API
             $videoClient = new VideoIntelligenceServiceClient();
 
@@ -62,7 +64,6 @@ class Home extends Component
             // Envia o vídeo para análise
             $operation = $videoClient->annotateVideo($request);
 
-            $this->mensagem = "Processando o vídeo...";
             $operation->pollUntilComplete();
 
             // Processa os resultados
@@ -89,6 +90,7 @@ class Home extends Component
             // Captura e exibe erros específicos
             throw new \Exception("Erro ao processar o vídeo: " . $e->getMessage());
         }
+        $this->dispatch('processCompleted');
     }
 
 }
