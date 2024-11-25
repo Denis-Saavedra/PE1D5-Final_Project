@@ -1,66 +1,164 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# Projeto Final - Tópicos Especiais I (PE1D5)
 
-## About Laravel
+  
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Este repositório contém o projeto final da matéria **Tópicos Especiais I (PE1D5)**. O trabalho consiste em uma aplicação web desenvolvida com **Laravel** e **Livewire**, que utiliza a **Google Cloud Video Intelligence API** para analisar vídeos enviados pelos usuários e gerar tags relacionadas ao conteúdo.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+  
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+  
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 📝 **Descrição do Projeto**
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+  
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+A aplicação permite que os usuários façam upload de vídeos no formato `.mp4`. Após o processamento do vídeo, o sistema utiliza a Google Cloud Video Intelligence API para identificar categorias e características do conteúdo, retornando tags relevantes.
 
-## Laravel Sponsors
+  
+  
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+---
 
-### Premium Partners
+  
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+## ⚙️ **Tecnologias Utilizadas**
 
-## Contributing
+  
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### **Back-End**
 
-## Code of Conduct
+-  **[Laravel](https://laravel.com/):** Framework PHP para construção da aplicação.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+-  **[Livewire](https://laravel-livewire.com/):** Ferramenta para criação de componentes reativos no Laravel.
 
-## Security Vulnerabilities
+  
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### **Serviços de Nuvem**
 
-## License
+-  **[Google Cloud Video Intelligence API](https://cloud.google.com/video-intelligence):** Serviço usado para análise e extração de informações dos vídeos.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+  
+
+### **Outras Dependências**
+
+- PHP 8.2
+
+  
+
+---
+
+  
+
+## 🚀 **Funcionalidades**
+
+  
+
+1.  **Upload de Vídeos:**
+
+Os usuários podem fazer upload de vídeos no formato `.mp4`.
+
+  
+
+2.  **Análise de Conteúdo:**
+
+O sistema processa o vídeo usando a Google Cloud Video Intelligence API e identifica características como:
+
+- Objetos no vídeo.
+
+- Ações ou atividades realizadas.
+
+- Contexto geral do vídeo.
+
+  
+
+3.  **Geração de Tags:**
+
+Tags geradas são exibidas para os usuários com base na análise realizada.
+
+  
+
+4.  **Interface Dinâmica:**
+
+- A interface é construída com **Livewire**, permitindo interatividade sem recarregar a página.
+
+- Integração com o design moderno e responsivo.
+
+  
+
+---
+
+  
+
+## 🖥️ **Como Rodar o Projeto Localmente**
+
+  
+
+### **Pré-requisitos**
+
+- [Composer](https://getcomposer.org/)
+
+- PHP 8.2 ou superior
+
+- [Laravel](https://laravel.com/docs/11.x/installation)
+
+- [Node.js](https://nodejs.org/)
+
+- Conta ativa no [Google Cloud Platform](https://cloud.google.com/).
+
+  
+
+### **Passos para Configuração**
+
+  
+
+1. Clone este repositório:
+
+```bash
+
+git clone https://github.com/Denis-Saavedra/PE1D5-Final_Project
+
+cd PE1D5-Final_Project
+   ```
+
+2. Instale as dependências do Laravel:
+   ```bash
+   composer install
+   ```
+
+3. Configure a chave da Google Cloud API:
+     ```env
+     GOOGLE_CLOUD_API_KEY=sua_chave_google_cloud
+     ```
+
+4. Instale as dependências do front-end:
+   ```bash
+   npm install && npm run dev
+   ```
+
+5. Inicie o servidor:
+   ```bash
+   php artisan serve
+   ```
+
+6. Acesse a aplicação no navegador:
+   ```
+   http://localhost:8000
+   ```
+
+---
+
+## 📂 **Estrutura do Projeto**
+
+- **/app:** Contém os controladores, modelos e lógica de negócios.
+- **/resources/views:** Arquivos Blade e componentes Livewire para renderização.
+- **/routes:** Configuração de rotas da aplicação.
+- **/public:** Arquivos estáticos (CSS, JS, etc.).
+
+---
+
+## 🖊️ **Autor**
+
+Desenvolvido por **Denis Saavedra** como projeto final da disciplina **Tópicos Especiais I (PE1D5)**.
