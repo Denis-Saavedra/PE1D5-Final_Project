@@ -9,7 +9,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse order-3" id="navbarCollapse">
+        {{-- <div class="collapse navbar-collapse order-3" id="navbarCollapse">
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
@@ -17,7 +17,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">Contato</a>
-                </li>
+                </li> --}}
 {{--                <li class="nav-item dropdown">--}}
 {{--                    <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Dropdown</a>--}}
 {{--                    <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">--}}

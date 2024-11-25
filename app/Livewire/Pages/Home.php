@@ -6,13 +6,27 @@ use Google\Cloud\VideoIntelligence\V1\Client\VideoIntelligenceServiceClient;
 use Google\Cloud\VideoIntelligence\V1\Feature;
 use Google\Cloud\VideoIntelligence\V1\AnnotateVideoRequest;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 putenv('GOOGLE_APPLICATION_CREDENTIALS=' . realpath('..\config\key-projeto-pe1d5.json'));
 
 class Home extends Component
 {
+    use WithFileUploads;
+
+    public $video;
+    public $uploadedVideoUrl;
+
+    public function uploadVideo()
+    {
+        $this->uploadedVideoPath = $this->video->store('videos\tmp', 'public');
+        $this->mensagem = "Vídeo enviado com sucesso. Pronto para análise.";
+        $this->uploadedVideoUrl = asset('storage/' . $this->uploadedVideoPath);
+    }
+
     // Propriedade pública para armazenar as mensagens
     public $mensagem;
+    public $uploadedVideoPath;
 
     public function render()
     {
@@ -22,11 +36,11 @@ class Home extends Component
     // Método para analisar o vídeo
     public function analyzeVideo()
     {
-        $videoPath = base_path('media/Nyan_Cat.mp4');
 
-        // Verifica se o arquivo existe
+        $videoPath = storage_path('app/public/' . $this->uploadedVideoPath);
+
         if (!file_exists($videoPath)) {
-            $this->mensagem = "Erro: O arquivo de vídeo não foi encontrado no caminho especificado.";
+            $this->mensagem = "Erro: O arquivo de vídeo não foi encontrado." . $videoPath;
             return;
         }
 
@@ -58,17 +72,16 @@ class Home extends Component
 
                 foreach ($response->getAnnotationResults() as $result) {
                     foreach ($result->getSegmentLabelAnnotations() as $label) {
-                        $tags[] = "Tag: " . $label->getEntity()->getDescription();
-                        foreach ($label->getSegments() as $segment) {
-                            $start = $segment->getSegment()->getStartTimeOffset();
-                            $end = $segment->getSegment()->getEndTimeOffset();
-                            $tags[] = "  Tempo: " . $start->serializeToJsonString() . " - " . $end->serializeToJsonString();
-                        }
+                        // Transformar a descrição em hashtag
+                        $tag = "#" . str_replace(" ", "_", strtolower($label->getEntity()->getDescription()));
+                        $tags[] = $tag;
                     }
                 }
 
-                $this->mensagem = implode("<br>", $tags);
-            } else {
+                // Concatenar as tags com espaços
+                $this->mensagem = implode("  ", $tags);
+            }
+             else {
                 // Verifica se houve erro no processamento
                 $this->mensagem = "Erro: " . $operation->getError()->getMessage();
             }

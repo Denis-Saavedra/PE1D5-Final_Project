@@ -6,3 +6,7 @@
 <script data-navigate-once src="{{asset('AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script data-navigate-once src="{{asset('AdminLTE/dist/js/adminlte.min.js')}}"></script>
+<!-- Livewire Scripts -->
+@livewireScripts
+<!-- My Scripts -->
+<script data-navigate-once src="{{asset('js/myscript.js')}}"></script>

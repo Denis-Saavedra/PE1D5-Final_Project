@@ -1,0 +1,42 @@
+.balacobaco textarea {
+    width: 30em ;
+    height: 16em;
+    resize: none;
+}
+
+.video-frame {
+    /*
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0FKtiLdg46tZSGTMwvqJR945j8fmZEiX97g&s');
+    */
+    background-size: cover;
+    background-position: center;
+    width: 30em;
+    height: 16em;
+    border: 1px solid #ccc;
+    position: relative;
+    overflow: hidden; /* Para evitar barras de rolagem */
+}
+
+.video-frame video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    z-index: 1; /* Coloca o vídeo atrás do conteúdo */
+    object-fit: cover; /* Garante que o vídeo cubra toda a div */
+}
+
+.video-frame .conteudo {
+    position: relative;
+    z-index: 1; /* Coloca o conteúdo acima do vídeo */
+    text-align: center;
+    padding: 20px;
+}
+
+.balacobaco button {
+    margin: 3em;
+    width: 10em;
+    height: 3em;
+}
